@@ -1,0 +1,14 @@
+typography:
+  font-family:
+    sans-serif:
+      value: "Inter, 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+      attributes:
+        category: typography
+        type: font-family
+        item: sans-serif
+    monospace:
+      value: "SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace"
+      attributes:
+        category: typography
+        type: font-family
+        item: monospace

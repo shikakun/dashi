@@ -1,0 +1,206 @@
+size:
+  scale:
+    minus-1:
+      value: -0.0625
+      attributes:
+        category: size
+        type: scale
+        item: -1
+    0:
+      value: 0
+      attributes:
+        category: size
+        type: scale
+        item: 0
+    1:
+      value: 0.0625
+      attributes:
+        category: size
+        type: scale
+        item: 1
+    2:
+      value: 0.125
+      attributes:
+        category: size
+        type: scale
+        item: 2
+    4:
+      value: 0.25
+      attributes:
+        category: size
+        type: scale
+        item: 4
+    8:
+      value: 0.5
+      attributes:
+        category: size
+        type: scale
+        item: 8
+    12:
+      value: 0.75
+      attributes:
+        category: size
+        type: scale
+        item: 12
+    16:
+      value: 1
+      attributes:
+        category: size
+        type: scale
+        item: 16
+    20:
+      value: 1.25
+      attributes:
+        category: size
+        type: scale
+        item: 20
+    24:
+      value: 1.5
+      attributes:
+        category: size
+        type: scale
+        item: 24
+    28:
+      value: 1.75
+      attributes:
+        category: size
+        type: scale
+        item: 28
+    32:
+      value: 2
+      attributes:
+        category: size
+        type: scale
+        item: 32
+    40:
+      value: 2.5
+      attributes:
+        category: size
+        type: scale
+        item: 40
+    48:
+      value: 3
+      attributes:
+        category: size
+        type: scale
+        item: 48
+    56:
+      value: 3.5
+      attributes:
+        category: size
+        type: scale
+        item: 56
+    64:
+      value: 4
+      attributes:
+        category: size
+        type: scale
+        item: 64
+    72:
+      value: 4.5
+      attributes:
+        category: size
+        type: scale
+        item: 72
+    80:
+      value: 5
+      attributes:
+        category: size
+        type: scale
+        item: 80
+    96:
+      value: 6
+      attributes:
+        category: size
+        type: scale
+        item: 96
+    112:
+      value: 7
+      attributes:
+        category: size
+        type: scale
+        item: 112
+    120:
+      value: 7.5
+      attributes:
+        category: size
+        type: scale
+        item: 120
+    128:
+      value: 8
+      attributes:
+        category: size
+        type: scale
+        item: 128
+    144:
+      value: 9
+      attributes:
+        category: size
+        type: scale
+        item: 144
+    160:
+      value: 10
+      attributes:
+        category: size
+        type: scale
+        item: 160
+    168:
+      value: 10.5
+      attributes:
+        category: size
+        type: scale
+        item: 168
+    176:
+      value: 11
+      attributes:
+        category: size
+        type: scale
+        item: 176
+    192:
+      value: 12
+      attributes:
+        category: size
+        type: scale
+        item: 192
+    216:
+      value: 13.5
+      attributes:
+        category: size
+        type: scale
+        item: 216
+    240:
+      value: 15
+      attributes:
+        category: size
+        type: scale
+        item: 240
+    256:
+      value: 16
+      attributes:
+        category: size
+        type: scale
+        item: 256
+    264:
+      value: 16.5
+      attributes:
+        category: size
+        type: scale
+        item: 264
+    288:
+      value: 18
+      attributes:
+        category: size
+        type: scale
+        item: 288
+    312:
+      value: 19.5
+      attributes:
+        category: size
+        type: scale
+        item: 312
+    9999:
+      value: 624.9375
+      attributes:
+        category: size
+        type: scale
+        item: 9999

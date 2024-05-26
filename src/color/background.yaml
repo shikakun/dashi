@@ -1,0 +1,32 @@
+color:
+  background:
+    primary:
+      light:
+        value: '{color.gray.0}'
+        attributes:
+          category: color
+          type: background
+          item: primary
+          theme: light
+      dark:
+        value: '{color.gray.900}'
+        attributes:
+          category: color
+          type: background
+          item: primary
+          theme: dark
+    secondary:
+      light:
+        value: '{color.gray.50}'
+        attributes:
+          category: color
+          type: background
+          item: secondary
+          theme: light
+      dark:
+        value: '{color.gray.800}'
+        attributes:
+          category: color
+          type: background
+          item: secondary
+          theme: dark

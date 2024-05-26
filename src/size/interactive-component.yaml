@@ -1,0 +1,26 @@
+size:
+  interactive-component:
+    xs:
+      value: '{size.scale.24}'
+      attributes:
+        category: size
+        type: interactive-component
+        item: xs
+    s:
+      value: '{size.scale.32}'
+      attributes:
+        category: size
+        type: interactive-component
+        item: s
+    m:
+      value: '{size.scale.40}'
+      attributes:
+        category: size
+        type: interactive-component
+        item: m
+    l:
+      value: '{size.scale.56}'
+      attributes:
+        category: size
+        type: interactive-component
+        item: l

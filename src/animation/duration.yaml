@@ -1,0 +1,8 @@
+animation:
+  duration:
+    normal:
+      value: '200ms'
+      attributes:
+        category: animation
+        type: duration
+        subitem: normal
