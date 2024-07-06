@@ -1,9 +1,9 @@
-const StyleDictionary = require('style-dictionary');
-const {
+import StyleDictionary from 'style-dictionary';
+import {
   fileHeader,
-  getTypeScriptType: baseGetTypeScriptType,
-} = require('style-dictionary/lib/common/formatHelpers');
-const yaml = require('yaml');
+  getTypeScriptType as baseGetTypeScriptType,
+} from 'style-dictionary/utils';
+import yaml from 'yaml';
 
 const sourcePath = ['src/**/*.yaml'];
 const buildPath = 'dist/';
@@ -41,7 +41,7 @@ function injectComment(content, comment) {
 StyleDictionary.registerTransform({
   name: 'attribute/cti-custom',
   type: 'attribute',
-  transformer: function (token) {
+  transform: function (token) {
     const attrNames = ['category', 'type', 'item', 'theme', 'subitem', 'state'];
     const originalAttrs = token.attributes || {};
     const generatedAttrs = {};
@@ -56,8 +56,8 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerFormat({
   name: 'javascript/es6-jsdoc',
-  formatter: ({ dictionary, file }) =>
-    fileHeader({ file }) +
+  format: async ({ dictionary, file }) =>
+    (await fileHeader({ file })) +
     dictionary.allTokens
       .map((token) =>
         injectComment(
@@ -70,7 +70,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations-jsdoc-with-branded-type',
-  formatter: ({ dictionary, file }) => {
+  format: ({ dictionary, file }) => {
     const types = new Set();
     const tokens = dictionary.allProperties.map((prop) => {
       const category = prop.original.attributes?.category;
@@ -91,61 +91,63 @@ StyleDictionary.registerFormat({
   },
 });
 
-module.exports = {
-  parsers: [
-    {
-      pattern: /\.yaml$/,
-      parse: ({ contents }) => yaml.parse(contents),
-    },
-  ],
-  source: sourcePath,
-  platforms: {
-    scss: {
-      transforms: [
-        'attribute/cti-custom',
-        'name/cti/kebab',
-        'time/seconds',
-        'content/icon',
-        'size/rem',
-        'color/css',
-      ],
-      buildPath,
-      files: [
-        {
-          destination: `_${buildFileName}.scss`,
-          format: 'scss/variables',
-        },
-      ],
-      options,
-    },
-    typescript: {
-      transforms: [
-        'attribute/cti-custom',
-        'name/cti/pascal',
-        'time/seconds',
-        'size/rem',
-        'color/css',
-      ],
-      buildPath,
-      files: [
-        {
-          format: 'javascript/es6-jsdoc',
-          destination: `${buildFileName}.js`,
-        },
-        {
-          format: 'typescript/es6-declarations-jsdoc-with-branded-type',
-          destination: `${buildFileName}.d.ts`,
-        },
-        {
-          format: 'javascript/module',
-          destination: `${buildFileName}.module.js`,
-        },
-        {
-          format: 'typescript/module-declarations',
-          destination: `${buildFileName}.module.d.ts`,
-        },
-      ],
-      options,
+export default {
+  hooks: {
+    parsers: [
+      {
+        pattern: /\.yaml$/,
+        parse: ({ contents }) => yaml.parse(contents),
+      },
+    ],
+    source: sourcePath,
+    platforms: {
+      scss: {
+        transforms: [
+          'attribute/cti-custom',
+          'name/cti/kebab',
+          'time/seconds',
+          'content/icon',
+          'size/rem',
+          'color/css',
+        ],
+        buildPath,
+        files: [
+          {
+            destination: `_${buildFileName}.scss`,
+            format: 'scss/variables',
+          },
+        ],
+        options,
+      },
+      typescript: {
+        transforms: [
+          'attribute/cti-custom',
+          'name/cti/pascal',
+          'time/seconds',
+          'size/rem',
+          'color/css',
+        ],
+        buildPath,
+        files: [
+          {
+            format: 'javascript/es6-jsdoc',
+            destination: `${buildFileName}.js`,
+          },
+          {
+            format: 'typescript/es6-declarations-jsdoc-with-branded-type',
+            destination: `${buildFileName}.d.ts`,
+          },
+          {
+            format: 'javascript/module',
+            destination: `${buildFileName}.module.js`,
+          },
+          {
+            format: 'typescript/module-declarations',
+            destination: `${buildFileName}.module.d.ts`,
+          },
+        ],
+        options,
+      },
     },
   },
 };
