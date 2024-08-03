@@ -1,8 +1,5 @@
 import StyleDictionary from 'style-dictionary';
-import {
-  fileHeader,
-  getTypeScriptType as baseGetTypeScriptType,
-} from 'style-dictionary/utils';
+import { fileHeader } from 'style-dictionary/utils';
 import yaml from 'yaml';
 
 const sourcePath = ['src/**/*.yaml'];
@@ -12,142 +9,123 @@ const options = {
   showFileHeader: false,
 };
 
-function getTypeName(type) {
-  return `DesignToken${type.charAt(0).toUpperCase() + type.slice(1)}`;
-}
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
 
-function getTypeScriptType(value, type) {
-  const rawType = baseGetTypeScriptType(value);
-  return rawType === 'string' && type ? getTypeName(type) : rawType;
-}
+const convertTokenToNestedValue = (token) => {
+  if ('value' in token) return token.value;
 
-function generateTypeDefinition(types) {
-  const typeDef = [
-    `type Branded<T, U extends string> = T & { [key in U]: never }`,
-    `type TokenType = ${types.map((token) => `'${token}'`).join(' | ')}`,
-    `type DesignToken<T extends string> = T extends TokenType ? Branded<string, T | 'designToken'> : never`,
-    ...types.map(
-      (token) => `export type ${getTypeName(token)} = DesignToken<'${token}'>`
-    ),
-  ];
-  return typeDef.join('\n') + '\n\n';
-}
+  return Object.fromEntries(
+    Object.entries(token).map(([key, value]) => [
+      key,
+      convertTokenToNestedValue(value),
+    ])
+  );
+};
 
-function injectComment(content, comment) {
-  const jsdoc = comment ? `/** ${comment} */\n` : '';
-  return jsdoc + content + '\n';
-}
+const convertTokenToTypeDefinition = (token) => {
+  if ('value' in token) return typeof token.value;
 
-StyleDictionary.registerTransform({
-  name: 'attribute/cti-custom',
-  type: 'attribute',
-  transform: function (token) {
-    const attrNames = ['category', 'type', 'item', 'theme', 'subitem', 'state'];
-    const originalAttrs = token.attributes || {};
-    const generatedAttrs = {};
+  return Object.fromEntries(
+    Object.entries(token).map(([key, value]) => [
+      key,
+      convertTokenToTypeDefinition(value),
+    ])
+  );
+};
 
-    for (let i = 0; i < token.path.length && i < attrNames.length; i++) {
-      generatedAttrs[attrNames[i]] = token.path[i];
-    }
+StyleDictionary.registerFormat({
+  name: 'javascript/esm',
+  format: async ({ dictionary, file, platform = {} }) => {
+    const header = await fileHeader({ file });
+    const { prefix } = platform;
+    const tokens = prefix ? { [prefix]: dictionary.tokens } : dictionary.tokens;
 
-    return Object.assign(generatedAttrs, originalAttrs);
+    const categorizedTokens = Object.entries(tokens).reduce(
+      (acc, [category, values]) => {
+        acc[category] = values;
+        return acc;
+      },
+      {}
+    );
+
+    const exportStrings = Object.entries(categorizedTokens).map(
+      ([category, token]) => {
+        return `export const ${capitalizeFirstLetter(
+          category
+        )} = ${JSON.stringify(convertTokenToNestedValue(token), null, 2)};\n`;
+      }
+    );
+
+    return header + exportStrings.join('\n');
   },
 });
 
 StyleDictionary.registerFormat({
-  name: 'javascript/es6-jsdoc',
-  format: async ({ dictionary, file }) =>
-    (await fileHeader({ file })) +
-    dictionary.allTokens
-      .map((token) =>
-        injectComment(
-          `export const ${token.name} = ${JSON.stringify(token.value)};`,
-          token.comment
-        )
-      )
-      .join('\n'),
-});
+  name: 'typescript/esm-declarations',
+  format: async ({ dictionary, file, platform = {} }) => {
+    const header = await fileHeader({ file });
+    const { prefix } = platform;
+    const tokens = prefix ? { [prefix]: dictionary.tokens } : dictionary.tokens;
 
-StyleDictionary.registerFormat({
-  name: 'typescript/es6-declarations-jsdoc-with-branded-type',
-  format: ({ dictionary, file }) => {
-    const types = new Set();
-    const tokens = dictionary.allProperties.map((prop) => {
-      const category = prop.original.attributes?.category;
-      if (category) types.add(category);
-      return injectComment(
-        `export const ${prop.name}: ${getTypeScriptType(
-          prop.value,
-          category
-        )};`,
-        prop.comment
-      );
-    });
-    return (
-      fileHeader({ file }) +
-      generateTypeDefinition(Array.from(types)) +
-      tokens.join('\n')
+    const categorizedTokens = Object.entries(tokens).reduce(
+      (acc, [category, values]) => {
+        acc[category] = values;
+        return acc;
+      },
+      {}
     );
+
+    const exportStrings = Object.entries(categorizedTokens).map(
+      ([category, token]) => {
+        return `export const ${capitalizeFirstLetter(
+          category
+        )}: ${JSON.stringify(convertTokenToTypeDefinition(token), null, 2)};\n`;
+      }
+    );
+
+    return header + exportStrings.join('\n').replace(/:\s"(\w+)"/g, ': $1');
   },
 });
 
 export default {
   hooks: {
-    parsers: [
-      {
+    parsers: {
+      'yaml-parser': {
         pattern: /\.yaml$/,
-        parse: ({ contents }) => yaml.parse(contents),
+        parser: ({ contents }) => yaml.parse(contents),
       },
-    ],
-    source: sourcePath,
-    platforms: {
-      scss: {
-        transforms: [
-          'attribute/cti-custom',
-          'name/cti/kebab',
-          'time/seconds',
-          'content/icon',
-          'size/rem',
-          'color/css',
-        ],
-        buildPath,
-        files: [
-          {
-            destination: `_${buildFileName}.scss`,
-            format: 'scss/variables',
-          },
-        ],
-        options,
-      },
-      typescript: {
-        transforms: [
-          'attribute/cti-custom',
-          'name/cti/pascal',
-          'time/seconds',
-          'size/rem',
-          'color/css',
-        ],
-        buildPath,
-        files: [
-          {
-            format: 'javascript/es6-jsdoc',
-            destination: `${buildFileName}.js`,
-          },
-          {
-            format: 'typescript/es6-declarations-jsdoc-with-branded-type',
-            destination: `${buildFileName}.d.ts`,
-          },
-          {
-            format: 'javascript/module',
-            destination: `${buildFileName}.module.js`,
-          },
-          {
-            format: 'typescript/module-declarations',
-            destination: `${buildFileName}.module.d.ts`,
-          },
-        ],
-        options,
-      },
+    },
+  },
+  parsers: ['yaml-parser'],
+  source: sourcePath,
+  platforms: {
+    ts: {
+      transformGroup: 'js',
+      buildPath: buildPath,
+      files: [
+        {
+          format: 'javascript/esm',
+          destination: `${buildFileName}.js`,
+        },
+        {
+          format: 'typescript/esm-declarations',
+          destination: `${buildFileName}.d.ts`,
+        },
+      ],
+      options,
+    },
+    css: {
+      transformGroup: 'css',
+      buildPath: buildPath,
+      files: [
+        {
+          destination: `${buildFileName}.css`,
+          format: 'css/variables',
+        },
+      ],
+      options,
     },
   },
 };

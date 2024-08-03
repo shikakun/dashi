@@ -19,14 +19,13 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/tokens.module.js",
       "import": "./dist/tokens.js",
       "types": "./dist/tokens.d.ts"
     }
   },
   "scripts": {
-    "build": "npm run clean && style-dictionary build --config .style-dictionary/config.js",
-    "clean": "style-dictionary clean --config .style-dictionary/config.js",
+    "build": "style-dictionary build --config .style-dictionary/config.js",
+    "prebuild": "style-dictionary clean --config .style-dictionary/config.js",
     "changeset-version": "changeset version",
     "changeset-publish": "npm run build && changeset publish"
   },
