@@ -1,7 +1,7 @@
 size:
   outline:
     offset:
-      value: '{size.scale.minus-1}'
+      value: '{size.scale.minus1}'
       attributes:
         category: size
         type: outline

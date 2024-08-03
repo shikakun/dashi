@@ -2,14 +2,14 @@ color:
   text:
     primary:
       light:
-        value: '{color.gray.900}'
+        value: '{color.palette.gray.900}'
         attributes:
           category: color
           type: text
           item: primary
           theme: light
       dark:
-        value: '{color.gray.50}'
+        value: '{color.palette.gray.50}'
         attributes:
           category: color
           type: text
@@ -17,14 +17,14 @@ color:
           theme: dark
     secondary:
       light:
-        value: '{color.gray.700}'
+        value: '{color.palette.gray.700}'
         attributes:
           category: color
           type: text
           item: secondary
           theme: light
       dark:
-        value: '{color.gray.200}'
+        value: '{color.palette.gray.200}'
         attributes:
           category: color
           type: text
@@ -32,14 +32,14 @@ color:
           theme: dark
     tertiary:
       light:
-        value: '{color.gray.500}'
+        value: '{color.palette.gray.500}'
         attributes:
           category: color
           type: text
           item: tertiary
           theme: light
       dark:
-        value: '{color.gray.400}'
+        value: '{color.palette.gray.400}'
         attributes:
           category: color
           type: text
@@ -47,14 +47,14 @@ color:
           theme: dark
     link:
       light:
-        value: '{color.interactive.700}'
+        value: '{color.semantic.interactive.700}'
         attributes:
           category: color
           type: text
           item: link
           theme: light
       dark:
-        value: '{color.interactive.300}'
+        value: '{color.semantic.interactive.300}'
         attributes:
           category: color
           type: text
