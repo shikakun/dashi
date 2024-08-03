@@ -3,11 +3,7 @@ color:
     background:
       enabled:
         light:
-          value:
-            r: 0
-            g: 0
-            b: 0
-            a: 0
+          value: 'rgba(0, 0, 0, 0)'
           attributes:
             category: color
             type: overlay
@@ -15,11 +11,7 @@ color:
             theme: light
             state: enabled
         dark:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0
+          value: 'rgba(255, 255, 255, 0)'
           attributes:
             category: color
             type: overlay
@@ -28,11 +20,7 @@ color:
             state: enabled
       hover:
         light:
-          value:
-            r: 0
-            g: 0
-            b: 0
-            a: 0.04
+          value: 'rgba(0, 0, 0, 0.04)'
           attributes:
             category: color
             type: overlay
@@ -40,11 +28,7 @@ color:
             theme: light
             state: hover
         dark:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0.08
+          value: 'rgba(255, 255, 255, 0.08)'
           attributes:
             category: color
             type: overlay
@@ -53,11 +37,7 @@ color:
             state: hover
       focused:
         light:
-          value:
-            r: 0
-            g: 0
-            b: 0
-            a: 0.12
+          value: 'rgba(0, 0, 0, 0.12)'
           attributes:
             category: color
             type: overlay
@@ -65,11 +45,7 @@ color:
             theme: light
             state: focused
         dark:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0.24
+          value: 'rgba(255, 255, 255, 0.24)'
           attributes:
             category: color
             type: overlay
@@ -78,11 +54,7 @@ color:
             state: focused
       activated:
         light:
-          value:
-            r: 62
-            g: 147
-            b: 222
-            a: 0.12
+          value: 'rgba(0, 0, 0, 0.12)'
           attributes:
             category: color
             type: overlay
@@ -90,11 +62,7 @@ color:
             theme: light
             state: activated
         dark:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0.24
+          value: 'rgba(255, 255, 255, 0.24)'
           attributes:
             category: color
             type: overlay
@@ -103,11 +71,7 @@ color:
             state: activated
       disabled:
         light:
-          value:
-            r: 0
-            g: 0
-            b: 0
-            a: 0
+          value: 'rgba(0, 0, 0, 0)'
           attributes:
             category: color
             type: overlay
@@ -116,11 +80,7 @@ color:
             state: disabled
         dark:
           disabled:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0
+          value: 'rgba(255, 255, 255, 0)'
           attributes:
             category: color
             type: overlay
@@ -128,11 +88,7 @@ color:
             theme: dark
             state: disabled
         enabled:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0
+          value: 'rgba(0, 0, 0, 0)'
           attributes:
             category: color
             type: overlay
@@ -140,11 +96,7 @@ color:
             theme: dark
             state: enabled
         hover:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0.08
+          value: 'rgba(255, 255, 255, 0.08)'
           attributes:
             category: color
             type: overlay
@@ -152,11 +104,7 @@ color:
             theme: dark,
             state: hover
         focused:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0.24
+          value: 'rgba(255, 255, 255, 0.24)'
           attributes:
             category: color
             type: overlay
@@ -164,11 +112,7 @@ color:
             theme: dark
             state: focused
         selected:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0.16
+          value: 'rgba(255, 255, 255, 0.16)'
           attributes:
             category: color
             type: overlay
@@ -176,11 +120,7 @@ color:
             theme: dark
             state: selected
         mixed:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0.16
+          value: 'rgba(255, 255, 255, 0.16)'
           attributes:
             category: color
             type: overlay
@@ -188,11 +128,7 @@ color:
             theme: dark
             state: mixed
         activated:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0.24
+          value: 'rgba(255, 255, 255, 0.24)'
           attributes:
             category: color
             type: overlay
@@ -200,11 +136,7 @@ color:
             theme: dark
             state: activated
         dragged:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0.16
+          value: 'rgba(255, 255, 255, 0.16)'
           attributes:
             category: color
             type: overlay
@@ -212,11 +144,7 @@ color:
             theme: dark
             state: dragged
         disabled:
-          value:
-            r: 255
-            g: 255
-            b: 255
-            a: 0
+          value: 'rgba(255, 255, 255, 0)'
           attributes:
             category: color
             type: overlay
@@ -225,55 +153,35 @@ color:
             state: disabled
     image:
       enabled:
-        value:
-          r: 0
-          g: 0
-          b: 0
-          a: 0
+        value: 'rgba(0, 0, 0, 0)'
         attributes:
           category: color
           type: overlay
           item: image
           state: enabled
       hover:
-        value:
-          r: 0
-          g: 0
-          b: 0
-          a: 0.12
+        value: 'rgba(0, 0, 0, 0.12)'
         attributes:
           category: color
           type: overlay
           item: image
           state: hover
       focused:
-        value:
-          r: 0
-          g: 0
-          b: 0
-          a: 0.36
+        value: 'rgba(0, 0, 0, 0.36)'
         attributes:
           category: color
           type: overlay
           item: image
           state: focused
       activated:
-        value:
-          r: 0
-          g: 0
-          b: 0
-          a: 0.36
+        value: 'rgba(0, 0, 0, 0.36)'
         attributes:
           category: color
           type: overlay
           item: image
           state: activated
       disabled:
-        value:
-          r: 0
-          g: 0
-          b: 0
-          a: 0
+        value: 'rgba(0, 0, 0, 0)'
         attributes:
           category: color
           type: overlay

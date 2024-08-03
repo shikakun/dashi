@@ -1,8 +1,8 @@
 animation:
   duration:
-    normal:
+    default:
       value: '200ms'
       attributes:
         category: animation
         type: duration
-        subitem: normal
+        item: default

@@ -19,21 +19,20 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/tokens.module.js",
       "import": "./dist/tokens.js",
       "types": "./dist/tokens.d.ts"
     }
   },
   "scripts": {
-    "build": "npm run clean && style-dictionary build --config .style-dictionary/config.js",
-    "clean": "style-dictionary clean --config .style-dictionary/config.js",
+    "build": "style-dictionary build --config .style-dictionary/config.js",
+    "prebuild": "style-dictionary clean --config .style-dictionary/config.js",
     "changeset-version": "changeset version",
     "changeset-publish": "npm run build && changeset publish"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.1",
-    "style-dictionary": "^4.0.0",
-    "yaml": "^2.4.2"
+    "@changesets/cli": "^2.27.7",
+    "style-dictionary": "^4.0.1",
+    "yaml": "^2.5.0"
   }
 }
