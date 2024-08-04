@@ -1,5 +1,11 @@
 # @shikakun/dashi
 
+## 1.2.0
+
+### Minor Changes
+
+- [#9](https://github.com/shikakun/dashi/pull/9) [`2e617c9`](https://github.com/shikakun/dashi/commit/2e617c904a1f1607a2f0cdfc480f732492250acd) Thanks [@shikakun](https://github.com/shikakun)! - Add fontWeight
+
 ## 1.1.0
 
 ### Minor Changes
