@@ -1,5 +1,5 @@
 ---
-"@shikakun/dashi": minor
+'@shikakun/dashi': minor
 ---
 
-interactiveComponent から xs, l のバリエーションを削除した
+不要なバリエーションを削除した

@@ -18,9 +18,3 @@ size:
         category: size
         type: avatar
         item: m
-    l:
-      value: '{size.scale.56}'
-      attributes:
-        category: size
-        type: avatar
-        item: l
