@@ -1,5 +1,11 @@
 # @shikakun/dashi
 
+## 1.3.0
+
+### Minor Changes
+
+- [#11](https://github.com/shikakun/dashi/pull/11) [`886e11f`](https://github.com/shikakun/dashi/commit/886e11f66335432cc180b442e76af1f344be23b9) Thanks [@shikakun](https://github.com/shikakun)! - 不要なバリエーションを削除した
+
 ## 1.2.0
 
 ### Minor Changes
