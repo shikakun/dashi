@@ -1,11 +1,5 @@
 size:
   interactiveComponent:
-    xs:
-      value: '{size.scale.24}'
-      attributes:
-        category: size
-        type: interactiveComponent
-        item: xs
     s:
       value: '{size.scale.32}'
       attributes:
@@ -18,9 +12,3 @@ size:
         category: size
         type: interactiveComponent
         item: m
-    l:
-      value: '{size.scale.56}'
-      attributes:
-        category: size
-        type: interactiveComponent
-        item: l
