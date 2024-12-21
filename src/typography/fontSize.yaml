@@ -48,3 +48,21 @@ typography:
         category: typography
         type: fontSize
         item: 3xl
+    4xl:
+      value: '2.6875rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: 4xl
+    5xl:
+      value: '4rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: 5xl
+    6xl:
+      value: '8rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: 6xl

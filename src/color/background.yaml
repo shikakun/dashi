@@ -1,32 +1,31 @@
 color:
   background:
-    primary:
+    page:
       light:
         value: '{color.palette.gray.0}'
         attributes:
           category: color
           type: background
-          item: primary
+          item: page
           theme: light
-      dark:
-        value: '{color.palette.gray.900}'
-        attributes:
-          category: color
-          type: background
-          item: primary
-          theme: dark
-    secondary:
-      light:
-        value: '{color.palette.gray.50}'
-        attributes:
-          category: color
-          type: background
-          item: secondary
-          theme: light
-      dark:
-        value: '{color.palette.gray.800}'
-        attributes:
-          category: color
-          type: background
-          item: secondary
-          theme: dark
+    field:
+      enabled:
+        light:
+          value: '{color.palette.gray.0}'
+          attributes:
+            category: color
+            type: background
+            item: table
+            variant: field
+            state: enabled
+            theme: light
+      disabled:
+        light:
+          value: '{color.palette.gray.50}'
+          attributes:
+            category: color
+            type: background
+            item: table
+            variant: field
+            state: disabled
+            theme: light
