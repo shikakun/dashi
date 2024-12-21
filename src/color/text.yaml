@@ -1,50 +1,45 @@
 color:
   text:
-    primary:
+    default:
       light:
         value: '{color.palette.gray.900}'
         attributes:
           category: color
           type: text
-          item: primary
+          item: default
           theme: light
-      dark:
-        value: '{color.palette.gray.50}'
+    muted:
+      light:
+        value: '{color.palette.gray.800}'
         attributes:
           category: color
           type: text
-          item: primary
-          theme: dark
-    secondary:
+          item: muted
+          theme: light
+    subtle:
       light:
         value: '{color.palette.gray.700}'
         attributes:
           category: color
           type: text
-          item: secondary
+          item: subtle
           theme: light
-      dark:
-        value: '{color.palette.gray.200}'
-        attributes:
-          category: color
-          type: text
-          item: secondary
-          theme: dark
-    tertiary:
+    whispered:
       light:
-        value: '{color.palette.gray.500}'
+        value: '{color.palette.gray.600}'
         attributes:
           category: color
           type: text
-          item: tertiary
+          item: whispered
           theme: light
-      dark:
-        value: '{color.palette.gray.400}'
+    emphasis:
+      light:
+        value: '{color.palette.gray.1000}'
         attributes:
           category: color
           type: text
-          item: tertiary
-          theme: dark
+          item: emphasis
+          theme: light
     link:
       light:
         value: '{color.semantic.interactive.700}'
@@ -53,10 +48,3 @@ color:
           type: text
           item: link
           theme: light
-      dark:
-        value: '{color.semantic.interactive.300}'
-        attributes:
-          category: color
-          type: text
-          item: link
-          theme: dark

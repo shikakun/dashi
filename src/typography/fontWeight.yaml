@@ -1,7 +1,7 @@
 typography:
   fontWeight:
     default:
-      value: 'regular'
+      value: 'normal'
       attributes:
         category: typography
         type: fontWeight
