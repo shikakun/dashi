@@ -1,5 +1,11 @@
 # @shikakun/dashi
 
+## 1.4.0
+
+### Minor Changes
+
+- [#13](https://github.com/shikakun/dashi/pull/13) [`1773767`](https://github.com/shikakun/dashi/commit/1773767fed839d751645ada2095b02a0cec9afbf) Thanks [@shikakun](https://github.com/shikakun)! - デザイントークンの定義と値を見直した
+
 ## 1.3.0
 
 ### Minor Changes
