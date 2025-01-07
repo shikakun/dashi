@@ -1,5 +1,11 @@
 # @shikakun/dashi
 
+## 1.4.1
+
+### Patch Changes
+
+- [#15](https://github.com/shikakun/dashi/pull/15) [`a03fd3a`](https://github.com/shikakun/dashi/commit/a03fd3a03d4c7aa0dd3fe51da4e2ed669af76f36) Thanks [@shikakun](https://github.com/shikakun)! - CSS ファイルを import できるようにした
+
 ## 1.4.0
 
 ### Minor Changes
