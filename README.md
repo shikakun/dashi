@@ -1,3 +1,8 @@
+> [!WARNING]
+>
+> The repository has been archived and is no longer actively maintained.  
+> The source code has been migrated to a monorepo and is now available at: https://github.com/shikakun/oden
+
 # dashi 🥣
 
 A design token collection for use with [oden](https://github.com/shikakun/oden).
